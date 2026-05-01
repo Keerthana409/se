@@ -1,0 +1,22 @@
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TitleVerify {
+    public static void main(String[] args) {
+
+        WebDriver driver = new ChromeDriver();
+
+        driver.get("https://example.com");
+        driver.manage().window().maximize();
+
+        String title = driver.getTitle();
+        System.out.println("Title: " + title);
+
+        if(title.equals("Example Domain"))
+            System.out.println("Title Verified");
+        else
+            System.out.println("Title Not Matched");
+
+        driver.close();
+    }
+}
