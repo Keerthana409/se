@@ -1,0 +1,22 @@
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import java.io.File;
+import org.openqa.selenium.io.FileHandler;
+
+public class ScreenshotDemo {
+    public static void main(String[] args) throws Exception {
+
+        WebDriver driver = new ChromeDriver();
+
+        driver.get("https://the-internet.herokuapp.com/login");
+
+        driver.findElement(By.id("username")).sendKeys("wrong");
+        driver.findElement(By.id("password")).sendKeys("wrong");
+        driver.findElement(By.className("radius")).click();
+
+        File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        FileHandler.copy(src, new File("D:\\loginfail.png"));
+
+        driver.quit();
+    }
+}
