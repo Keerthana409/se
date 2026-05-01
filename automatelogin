@@ -1,0 +1,29 @@
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class LoginVerify {
+    public static void main(String[] args) {
+
+        WebDriver driver = new ChromeDriver();
+
+        // Open browser
+        driver.get("https://the-internet.herokuapp.com/login");
+
+        // Enter username
+        driver.findElement(By.id("username")).sendKeys("tomsmith");
+
+        // Enter password
+        driver.findElement(By.id("password")).sendKeys("SuperSecretPassword!");
+
+        // Click login
+        driver.findElement(By.className("radius")).click();
+
+        // Verify login
+        if(driver.getTitle().contains("The Internet"))
+            System.out.println("Login Successful");
+        else
+            System.out.println("Login Failed");
+
+        driver.quit();
+    }
+}
