@@ -1,0 +1,21 @@
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FrameDemo {
+    public static void main(String[] args) {
+
+        WebDriver driver = new ChromeDriver();
+
+        driver.get("https://the-internet.herokuapp.com/iframe");
+
+        driver.switchTo().frame("mce_0_ifr");
+
+        WebElement box = driver.findElement(By.id("tinymce"));
+        box.clear();
+        box.sendKeys("Hello Selenium");
+
+        driver.switchTo().defaultContent();
+
+        driver.quit();
+    }
+}
