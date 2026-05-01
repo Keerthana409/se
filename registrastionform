@@ -6,29 +6,23 @@ public class RegistrationDropdown {
     public static void main(String[] args) {
 
         WebDriver driver = new ChromeDriver();
-
-        // Open website
         driver.get("https://demoqa.com/automation-practice-form");
 
-        // Enter name
         driver.findElement(By.id("firstName")).sendKeys("Keerthana");
         driver.findElement(By.id("lastName")).sendKeys("Parsi");
 
-        // Select Gender (radio)
+        
         driver.findElement(By.xpath("//label[text()='Female']")).click();
 
-        // Enter mobile
+
         driver.findElement(By.id("userNumber")).sendKeys("9876543210");
 
-        // Dropdown (State)
         driver.findElement(By.id("state")).click();
         driver.findElement(By.xpath("//div[text()='NCR']")).click();
 
-        // Dropdown (City)
         driver.findElement(By.id("city")).click();
         driver.findElement(By.xpath("//div[text()='Delhi']")).click();
 
-        // Submit
         driver.findElement(By.id("submit")).click();
 
         driver.quit();
